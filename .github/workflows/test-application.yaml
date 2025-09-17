@@ -4,4 +4,13 @@ jobs:
   test:
     runs-on: ubuntu-22.04
     steps:
-      - run: echo "Rodando o workflow de testes!"
+      - name: Checkout code
+        uses: action/checkout@v5
+
+      - name: Set up Python
+        uses: actions/setup-python@v6
+        with:
+          python-version: "3.13"
+
+      - name: Run tests
+        run: python -m unittest
